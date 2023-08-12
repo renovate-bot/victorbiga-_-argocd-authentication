@@ -12,13 +12,13 @@ spec:
     - host: victor.io
       http:
         paths:
-          - path: /status
+          - path: /keycloak
             pathType: Prefix
             backend:
               service:
-                name: httpbin
+                name: authentication-keycloak
                 port:
-                  number: 8000
+                  number: 80
   defaultBackend:
     service:
       name: authentication-istio-gateway
