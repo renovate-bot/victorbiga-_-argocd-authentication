@@ -1,9 +1,9 @@
 {
-  "appName": "argocd-apps",
-  "userGivenName": "argocd-apps",
-  "destNamespace": "argocd-apps",
+  "appName": "base",
+  "userGivenName": "istio-base",
+  "destNamespace": "istio-system",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "apps/authentication/chart",
+  "srcPath": "apps/authentication/base/chart",
   "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
   "srcTargetRevision": "",
   "labels": null,
