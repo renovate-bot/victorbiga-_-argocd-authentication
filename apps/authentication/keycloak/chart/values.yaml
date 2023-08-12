@@ -1,0 +1,9 @@
+keycloak:
+  auth:
+    adminUser: admin
+    adminPassword: admin
+  postgresql:
+    auth:
+      postgresPassword: admin
+      username: bn_keycloak
+      password: bn_keycloak_password
