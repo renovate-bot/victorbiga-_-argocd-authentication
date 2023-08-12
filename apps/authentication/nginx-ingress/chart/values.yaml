@@ -1,3 +1,5 @@
 nginx-ingress:
   controller:
     hostNetwork: true
+  service:
+    type: ClusterIP
