@@ -49,7 +49,7 @@ spec:
         - values-base.yaml
 
       # Ignore locally missing valueFiles when installing Helm chart. Defaults to false
-      ignoreMissingValueFiles: false
+      ignoreMissingValueFiles: true
 
 #      # Values file as block file. Prefer to use valuesObject if possible (see below)
 #      values: |
@@ -88,7 +88,7 @@ spec:
 
       # Optional Helm version to template with. If omitted it will fall back to look at the 'apiVersion' in Chart.yaml
       # and decide which Helm binary to use automatically. This field can be either 'v2' or 'v3'.
-      version: v2
+#      version: v2
 
 #    # kustomize specific config
 #    kustomize:
