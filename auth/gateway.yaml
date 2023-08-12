@@ -43,7 +43,7 @@ spec:
 #          path: files/config.json
 
       # Release name override (defaults to application name)
-      releaseName: istiod
+      releaseName: gateway
 
       # Helm values files for overriding values in the helm chart
       # The path is relative to the spec.source.path directory defined above
