@@ -1,0 +1,11 @@
+{
+  "appName": "keycloak",
+  "userGivenName": "keycloak",
+  "destNamespace": "keycloak",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/authentication/keycloak/chart",
+  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}

@@ -1,0 +1,9 @@
+apiVersion: v2
+name: keycloak
+description: keycloak
+version: 0.1.0
+appVersion: 1.18.2
+dependencies:
+  - name: keycloak
+    repository: oci://registry-1.docker.io/bitnamicharts/keycloak
+    version: 16.0.3
