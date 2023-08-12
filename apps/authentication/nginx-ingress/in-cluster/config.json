@@ -1,11 +1,11 @@
-{
-  "appName": "nginx-ingress",
-  "userGivenName": "nginx-ingress",
-  "destNamespace": "nginx-ingress",
-  "destServer": "https://kubernetes.default.svc",
-  "srcPath": "apps/authentication/nginx-ingress/chart",
-  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
-  "srcTargetRevision": "",
-  "labels": null,
-  "annotations": null
-}
+//{
+//  "appName": "nginx-ingress",
+//  "userGivenName": "nginx-ingress",
+//  "destNamespace": "nginx-ingress",
+//  "destServer": "https://kubernetes.default.svc",
+//  "srcPath": "apps/authentication/nginx-ingress/chart",
+//  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
+//  "srcTargetRevision": "",
+//  "labels": null,
+//  "annotations": null
+//}
