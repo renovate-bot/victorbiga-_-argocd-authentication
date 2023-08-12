@@ -17,7 +17,7 @@ metadata:
     name: base
 spec:
   # The project the application belongs to.
-  project: default
+  project: authentication
 
   # Source of the application manifests
   source:

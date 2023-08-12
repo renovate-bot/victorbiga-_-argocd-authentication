@@ -18,7 +18,7 @@ spec:
     jsonPointers:
     - /status
     kind: Application
-  project: default
+  project: authentication
   source:
     path: auth
     repoURL: https://github.com/victorbiga/argocd-authentication.git
