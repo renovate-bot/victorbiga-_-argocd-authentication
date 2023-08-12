@@ -1,0 +1,11 @@
+{
+  "appName": "oauth2-proxy",
+  "userGivenName": "oauth2-proxy",
+  "destNamespace": "oauth2-proxy",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/authentication/oauth2-proxy/chart",
+  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
