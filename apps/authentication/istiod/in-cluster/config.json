@@ -1,0 +1,11 @@
+{
+  "appName": "istiod",
+  "userGivenName": "istiod",
+  "destNamespace": "istio-system",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/authentication/istiod/chart",
+  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
