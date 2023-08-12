@@ -11,7 +11,14 @@ configMapGenerator:
         key: git_username
         name: autopilot-secret
   name: argocd-cm
+- name: argocd-cm
+  behavior: merge
+  literals:
+    - "exec.enabled=true"
 kind: Kustomization
 namespace: argocd
 resources:
-- github.com/argoproj-labs/argocd-autopilot/manifests/base?ref=v0.4.15
+- https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.0/manifests/install.yaml
+patchesStrategicMerge:
+  - argocd-rbac-cm.patch.yaml
+  - argocd-cr.patch.yaml
