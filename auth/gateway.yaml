@@ -164,7 +164,7 @@ spec:
     targetRevision: 1.18.2  # For Helm, this refers to the chart version.
     chart: gateway
     helm:
-      valuesFiles:
+      valueFiles:
       - $values/auth/values/values-gateway.yaml
   - repoURL: https://github.com/victorbiga/argocd-authentication.git  # Can point to either a Helm chart repo or a git repo.
     targetRevision: master  # For Helm, this refers to the chart version.
