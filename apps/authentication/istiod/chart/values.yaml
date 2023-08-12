@@ -2,4 +2,4 @@ istiod:
   global:
     certSigners:
       - clusterissuers.cert-manager.io/selfsigned-cluster-issuer
-  revisionTags: [ "1-8-2" ]
+
