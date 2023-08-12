@@ -1,0 +1,11 @@
+{
+  "appName": "demoapp",
+  "userGivenName": "demoapp",
+  "destNamespace": "default",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/demoapp/overlays/authentication",
+  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
