@@ -211,10 +211,10 @@ spec:
 #  # Will ignore differences between live and desired states during the diff. Note that these configurations are not
 #  # used during the sync process unless the `RespectIgnoreDifferences=true` sync option is enabled.
   ignoreDifferences:
-#    - group: argoproj.io
-#      jsonPointers:
-#      - /status
-#      kind: Application
+    - group: argoproj.io
+      jsonPointers:
+      - /status
+      kind: Application
     - group: admissionregistration.k8s.io
       kind: ValidatingWebhookConfiguration
       name: istiod-default-validator
