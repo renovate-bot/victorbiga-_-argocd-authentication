@@ -36,7 +36,7 @@ spec:
   generators:
   - git:
       files:
-      - path: apps/authentication/**/config.json
+      - path: apps/authentication/**/**/config.json
       repoURL: https://github.com/victorbiga/argocd-authentication.git
       requeueAfterSeconds: 20
       revision: ""
@@ -49,7 +49,7 @@ spec:
             repoURL: ""
   - git:
       files:
-      - path: apps/authentication/**/config_dir.json
+      - path: apps/authentication/**/**/config_dir.json
       repoURL: https://github.com/victorbiga/argocd-authentication.git
       requeueAfterSeconds: 20
       revision: ""
