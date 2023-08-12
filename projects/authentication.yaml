@@ -46,6 +46,7 @@ spec:
           destination: {}
           project: ""
           source:
+            repoURL: ""
             helm:
               releaseName: '{{ "{{" }} appName }}'
               ignoreMissingValueFiles: true
