@@ -23,7 +23,7 @@ spec:
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts  # Can point to either a Helm chart repo or a git repo.
     targetRevision: 1.18.2  # For Helm, this refers to the chart version.
-#    path: guestbook  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    path: auth/values  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 
     # helm specific config
     chart: gateway  # Set this when pulling directly from a Helm repo. DO NOT set for git-hosted Helm charts.
@@ -48,7 +48,7 @@ spec:
       # Helm values files for overriding values in the helm chart
       # The path is relative to the spec.source.path directory defined above
       valueFiles:
-        - ./values/values-gateway.yaml
+        - values-gateway.yaml
 
       # Ignore locally missing valueFiles when installing Helm chart. Defaults to false
       ignoreMissingValueFiles: true
