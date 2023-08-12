@@ -1,5 +1,2 @@
 cert-manager:
   installCRDs: true
-  serviceAccount:
-    create: false
-    name: cert-manager
