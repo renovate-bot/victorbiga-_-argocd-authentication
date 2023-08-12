@@ -20,7 +20,7 @@ spec:
   # Source of the application manifests
   source:
     repoURL: https://istio-release.storage.googleapis.com/charts  # Can point to either a Helm chart repo or a git repo.
-#    targetRevision: HEAD  # For Helm, this refers to the chart version.
+    targetRevision: 1.18.2  # For Helm, this refers to the chart version.
 #    path: guestbook  # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
 
     # helm specific config
