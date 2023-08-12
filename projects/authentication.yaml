@@ -46,25 +46,16 @@ spec:
           destination: {}
           project: ""
           source:
-            repoURL: ""
-  - git:
-      files:
-      - path: apps/authentication/**/**/config_dir.json
-      repoURL: https://github.com/victorbiga/argocd-authentication.git
-      requeueAfterSeconds: 20
-      revision: ""
-      template:
-        metadata: {}
-        spec:
-          destination: {}
-          project: ""
-          source:
-            directory:
-              exclude: '{{ exclude }}'
-              include: '{{ include }}'
-              jsonnet: {}
-              recurse: true
-            repoURL: ""
+            helm:
+              releaseName: '{{ "{{" }} appName }}'
+              ignoreMissingValueFiles: true
+              valueFiles:
+                # valueFile are relative to  {{ "{{" }} srcPath }}
+
+                # app values
+                - 'values.yaml'
+                # deployment values
+                - '../{{ "{{" }} path.basename }}/values.yaml'
   syncPolicy: {}
   template:
     metadata:

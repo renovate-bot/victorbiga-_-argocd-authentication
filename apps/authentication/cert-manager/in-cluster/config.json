@@ -1,0 +1,11 @@
+{
+  "appName": "cert-manager",
+  "userGivenName": "cert-manager",
+  "destNamespace": "cert-manager",
+  "destServer": "https://kubernetes.default.svc",
+  "srcPath": "apps/authentication/cert-manager/chart",
+  "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
+  "srcTargetRevision": "",
+  "labels": null,
+  "annotations": null
+}
