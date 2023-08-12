@@ -48,7 +48,7 @@ spec:
           source:
             repoURL: ""
             helm:
-              releaseName: '{{ path.basename }}'
+              releaseName: '{{ "{{" }} appName }}'
               ignoreMissingValueFiles: true
               valueFiles:
                 # valueFile are relative to  {{ "{{" }} srcPath }}
