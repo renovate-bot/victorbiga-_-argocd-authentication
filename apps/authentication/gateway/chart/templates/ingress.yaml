@@ -6,17 +6,17 @@ metadata:
     cert-manager.io/Clusterissuer: "selfsigned-cluster-issuer"
   name: ingress
 spec:
-#  rules:
-#    - host: victor.io
-#      http:
-#        paths:
-#          - path: /status
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: httpbin
-#                port:
-#                  number: 8000
+  rules:
+    - host: victor.io
+      http:
+        paths:
+          - path: /status
+            pathType: Prefix
+            backend:
+              service:
+                name: httpbin
+                port:
+                  number: 8000
   defaultBackend:
     service:
       name: authentication-istio-gateway
