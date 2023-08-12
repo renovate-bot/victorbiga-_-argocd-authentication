@@ -3,7 +3,7 @@
   "userGivenName": "istio-gateway",
   "destNamespace": "istio-system",
   "destServer": "https://kubernetes.default.svc",
-  "srcPath": "apps/authentication/istio-gateway/chart",
+  "srcPath": "apps/authentication/gateway/chart",
   "srcRepoURL": "https://github.com/victorbiga/argocd-authentication.git",
   "srcTargetRevision": "",
   "labels": null,
