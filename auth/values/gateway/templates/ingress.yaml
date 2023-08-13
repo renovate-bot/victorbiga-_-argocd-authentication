@@ -6,17 +6,17 @@ metadata:
     cert-manager.io/Clusterissuer: "selfsigned-cluster-issuer"
   name: ingress
 spec:
-  rules:
-    - host: victor.io
-      http:
-        paths:
-          - path: /argocd
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server.argocd.svc.local
-                port:
-                  number: 80
+#  rules:
+#    - host: victor.io
+#      http:
+#        paths:
+#          - path: /argocd
+#            pathType: Prefix
+#            backend:
+#              service:
+#                name: argocd-server.argocd.svc.local
+#                port:
+#                  number: 80
   defaultBackend:
     service:
       name: gateway
