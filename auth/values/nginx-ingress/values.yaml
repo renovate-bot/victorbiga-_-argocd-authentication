@@ -3,8 +3,8 @@ controller:
   image:
     pullPolicy: Always
 
-  service:
-    httpPort:
-      port: 8080
-    httpsPort:
-      port: 8443
+#  service:
+#    httpPort:
+#      port: 8080
+#    httpsPort:
+#      port: 8443
