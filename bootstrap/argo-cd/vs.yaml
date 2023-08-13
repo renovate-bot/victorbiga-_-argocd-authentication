@@ -10,12 +10,12 @@ spec:
   http:
     - name: "argocd-server"
       match:
-      - uri:
-          prefix: "/argocd"
+        - uri:
+            prefix: "/argocd"
       rewrite:
         uri: "/"
       route:
-      - destination:
-          port:
-            number: 80
-          host: argocd-server
+        - destination:
+            port:
+              number: 80
+            host: argocd-server
