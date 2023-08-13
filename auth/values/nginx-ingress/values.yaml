@@ -1,2 +1,4 @@
 controller:
   hostNetwork: true
+  image:
+    pullPolicy: Always
