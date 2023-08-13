@@ -19,6 +19,7 @@ kind: Kustomization
 namespace: argocd
 resources:
 - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.0/manifests/install.yaml
+- vs.yaml
 patchesStrategicMerge:
   - argocd-rbac-cm.patch.yaml
   - argocd-cr.patch.yaml
