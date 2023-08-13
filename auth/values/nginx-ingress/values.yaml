@@ -1,7 +1,7 @@
-controller:
-  hostNetwork: true
-  image:
-    pullPolicy: Always
+#controller:
+#  hostNetwork: true
+#  image:
+#    pullPolicy: Always
 
 #  service:
 #    httpPort:
