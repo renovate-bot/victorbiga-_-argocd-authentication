@@ -19,6 +19,6 @@ spec:
                   number: 80
   defaultBackend:
     service:
-      name: authentication-istio-gateway
+      name: argocd-server
       port:
         number: 80
