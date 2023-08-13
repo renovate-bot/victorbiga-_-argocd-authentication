@@ -7,7 +7,7 @@ spec:
     app: gateway
   servers:
     - hosts:
-        - "*.victor.io"
+        - 'victor.io'
       port:
         name: http
         number: 80
