@@ -1,9 +1,0 @@
-apiVersion: v2
-name: nginx-ingress
-description: nginx-ingress
-version: 0.1.0
-appVersion: 0.18.0
-dependencies:
-  - name: nginx-ingress
-    repository: https://helm.nginx.com/stable
-    version: 0.18.0
