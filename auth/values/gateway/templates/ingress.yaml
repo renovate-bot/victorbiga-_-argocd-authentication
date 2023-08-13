@@ -19,6 +19,6 @@ spec:
                   number: 80
   defaultBackend:
     service:
-      name: "argocd-server.argocd.svc.cluster.local"
+      name: gateway
       port:
         number: 80
