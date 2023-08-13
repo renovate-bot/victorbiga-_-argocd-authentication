@@ -19,9 +19,9 @@ spec:
     - repoURL: https://github.com/victorbiga/argocd-authentication.git
       targetRevision: master
       ref: values
-    - repoURL: https://github.com/victorbiga/argocd-authentication.git
-      targetRevision: master
-      path: auth/values/istiod/templates
+#    - repoURL: https://github.com/victorbiga/argocd-authentication.git
+#      targetRevision: master
+#      path: auth/values/istiod/templates
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system

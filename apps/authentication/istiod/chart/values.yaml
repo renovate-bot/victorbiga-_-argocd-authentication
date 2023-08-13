@@ -1,5 +1,0 @@
-istiod:
-  global:
-    certSigners:
-      - clusterissuers.cert-manager.io/selfsigned-cluster-issuer
-
