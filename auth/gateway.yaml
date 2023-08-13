@@ -15,7 +15,7 @@ spec:
     chart: gateway
     helm:
       valueFiles:
-      - $values/auth/values/gateway/values-gateway.yaml
+      - $values/auth/values/gateway/values.yaml
   - repoURL: https://github.com/victorbiga/argocd-authentication.git
     targetRevision: master
     ref: values
