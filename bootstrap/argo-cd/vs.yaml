@@ -4,7 +4,7 @@ metadata:
   name: argocd-server
 spec:
   hosts:
-    - "victor.io"
+    - 'victor.io'
   gateways:
     - istio-system/gateway
   http:
