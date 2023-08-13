@@ -15,10 +15,13 @@ spec:
     chart: cert-manager
     helm:
       valueFiles:
-      - $values/auth/values/values-cert-manager.yaml
+      - $values/auth/values/cert-manager/values.yaml
   - repoURL: https://github.com/victorbiga/argocd-authentication.git
     targetRevision: master
     ref: values
+  - repoURL: https://github.com/victorbiga/argocd-authentication.git
+    targetRevision: master
+    path: auth/values/cert-manager/templates
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
