@@ -10,11 +10,11 @@ spec:
     - host: victor.io
       http:
         paths:
-          - path: /keycloak
+          - path: /argocd
             pathType: Prefix
             backend:
               service:
-                name: authentication-keycloak
+                name: argocd-server
                 port:
                   number: 80
   defaultBackend:
