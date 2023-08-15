@@ -16,6 +16,8 @@ spec:
       route:
         - destination:
             host: argocd-server
+            ports:
+              port: 80
 
 #---
 #apiVersion: networking.istio.io/v1beta1
