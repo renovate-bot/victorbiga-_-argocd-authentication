@@ -9,8 +9,18 @@ spec:
     - hosts:
         - "*"
       port:
+        number: 443
+        name: https-443
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        serverCertificate: /etc/certs/servercert.pem
+        privateKey: /etc/certs/privatekey.pem
+    - hosts:
+        - "*"
+      port:
         name: http
         number: 80
         protocol: HTTP
       tls:
-        httpsRedirect: false
+        httpsRedirect: true
