@@ -4,7 +4,7 @@ metadata:
   name: argocd-server
 spec:
   hosts:
-    - 'localhost'
+    - localhost
   gateways:
     - istio-system/gateway
   http:
