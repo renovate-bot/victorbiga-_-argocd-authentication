@@ -12,7 +12,7 @@ spec:
         - uri:
             prefix: /argocd
       rewrite:
-        uri: "/"
+        uri: /
       route:
         - destination:
             host: argocd-server
