@@ -6,7 +6,7 @@ spec:
   hosts:
     - "*"
   gateways:
-    - istio-system/gateway
+    - gateway
   http:
     - match:
         - uri:
@@ -27,7 +27,7 @@ spec:
   hosts:
     - kiali.victor.internal
   gateways:
-    - istio-system/gateway
+    - gateway
   http:
     - route:
         - destination:
