@@ -17,7 +17,7 @@ spec:
         - destination:
             host: argocd-server
             port:
-              number: 443
+              number: 80
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
@@ -33,4 +33,4 @@ spec:
         - destination:
             host: argocd-server
             port:
-              number: 443
+              number: 80
