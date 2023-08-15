@@ -18,7 +18,7 @@ spec:
           - $values/auth/values/istiod/values.yaml
     - repoURL: https://github.com/victorbiga/argocd-authentication.git
       targetRevision: master
-      ref: values
+#      ref: values
 #    - repoURL: https://github.com/victorbiga/argocd-authentication.git
 #      targetRevision: master
 #      path: auth/values/istiod/templates
