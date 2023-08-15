@@ -4,7 +4,7 @@ metadata:
   name: gateway
 spec:
   selector:
-    app: gateway
+    istio: gateway
   servers:
     - hosts:
         - "*."
