@@ -11,4 +11,4 @@ spec:
       port:
         name: http
         number: 80
-        protocol: TCP
+        protocol: HTTP
