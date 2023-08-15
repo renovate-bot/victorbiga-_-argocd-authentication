@@ -7,7 +7,7 @@ spec:
     app: gateway
   servers:
     - hosts:
-        - victor.internal
+        - "*.victor.internal"
       port:
         name: http
         number: 80
