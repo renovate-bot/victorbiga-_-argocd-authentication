@@ -12,7 +12,7 @@ spec:
         - uri:
             prefix: /argocd
       rewrite:
-        uri: /auth
+        uri: ""
       route:
         - destination:
             host: argocd-server.argocd.svc.cluster.local
