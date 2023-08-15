@@ -21,6 +21,7 @@ configMapGenerator:
     - "server.insecure=true"
     - "server.plaintext=true"
     - "server.grpc-web=true"
+    - "server.rootpath=/argocd"
 kind: Kustomization
 namespace: argocd
 resources:
