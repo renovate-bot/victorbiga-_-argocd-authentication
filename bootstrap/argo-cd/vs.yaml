@@ -4,7 +4,7 @@ metadata:
   name: argocd-server
 spec:
   hosts:
-    - "*"
+    - victor.internal
   gateways:
     - istio-system/gateway
   http:
@@ -17,17 +17,17 @@ spec:
         - destination:
             host: argocd-server
 
----
-apiVersion: networking.istio.io/v1beta1
-kind: VirtualService
-metadata:
-  name: argocd
-spec:
-  hosts:
-    - kiali.victor.internal
-  gateways:
-    - istio-system/gateway
-  http:
-    - route:
-        - destination:
-            host: argocd-server.argocd.svc.cluster.local
+#---
+#apiVersion: networking.istio.io/v1beta1
+#kind: VirtualService
+#metadata:
+#  name: argocd
+#spec:
+#  hosts:
+#    - kiali.victor.internal
+#  gateways:
+#    - istio-system/gateway
+#  http:
+#    - route:
+#        - destination:
+#            host: argocd-server.argocd.svc.cluster.local
