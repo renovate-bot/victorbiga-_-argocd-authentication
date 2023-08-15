@@ -16,6 +16,4 @@ spec:
         uri: "/"
       route:
         - destination:
-            port:
-              number: 80
             host: argocd-server
