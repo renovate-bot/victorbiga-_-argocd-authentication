@@ -1,3 +1,3 @@
-global:
-  certSigners:
-    - clusterissuers.cert-manager.io/selfsigned-cluster-issuer
+#global:
+#  certSigners:
+#    - clusterissuers.cert-manager.io/selfsigned-cluster-issuer
