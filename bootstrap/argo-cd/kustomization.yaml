@@ -15,12 +15,12 @@ configMapGenerator:
   behavior: merge
   literals:
     - "exec.enabled=true"
-- behavior: merge
+- name: argocd-cmd-params-cm
+  behavior: merge
   literals:
     - "server.insecure=true"
     - "server.plaintext=true"
     - "server.grpc-web=true"
-  name: argocd-cmd-params-cm
 kind: Kustomization
 namespace: argocd
 resources:
