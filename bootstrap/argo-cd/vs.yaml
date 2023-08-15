@@ -10,7 +10,7 @@ spec:
   http:
     - match:
         - uri:
-            prefix: /argocd/
+            prefix: /argocd
 #      rewrite:
 #        uri: /
       route:
