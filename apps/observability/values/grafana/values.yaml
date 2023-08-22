@@ -3,3 +3,8 @@ grafana:
     security:
       admin_user: admin
       admin_password: admin
+operator:
+  extraEnvVars:
+    GF_SERVER_ROOT_URL: "http://localhost:3000/grafana/"
+    GF_SERVER_DOMAIN: "localhost"
+    GF_SERVER_SERVE_FROM_SUB_PATH: "true"
