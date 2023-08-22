@@ -12,7 +12,7 @@ spec:
         - uri:
             prefix: /grafana
       rewrite:
-        uri: "/"
+        uri: "/login"
       route:
         - destination:
             host: grafana-grafana-operator-grafana-service
