@@ -2,32 +2,32 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "11"
-  name: grafana
+    argocd.argoproj.io/sync-wave: "13"
+  name: jaeger
   namespace: argocd
   labels:
-    name: grafana
+    name: jaeger
 spec:
   project: observability
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
-      targetRevision: 3.3.1
-      chart: grafana-operator
+      targetRevision: 0.71.14
+      chart: jaeger
       helm:
         valueFiles:
-          - $values/apps/observability/values/grafana/values.yaml
+          - $values/apps/observability/values/jaeger/values.yaml
     - repoURL: https://github.com/victorbiga/argocd-authentication.git
       targetRevision: master
       ref: values
     - repoURL: https://github.com/victorbiga/argocd-authentication.git
       targetRevision: master
-      path: apps/observability/values/grafana/templates
+      path: apps/observability/values/jaeger/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: grafana
+    namespace: jaeger
   info:
-    - name: 'Grafana:'
-      value: 'http://grafana.victor.internal'
+    - name: 'Jaeger:'
+      value: 'http://jaeger.victor.internal'
   syncPolicy:
     automated:
       prune: true
