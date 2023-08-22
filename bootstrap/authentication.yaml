@@ -20,7 +20,7 @@ spec:
     kind: Application
   project: authentication
   source:
-    path: authentication
+    path: apps/authentication
     repoURL: https://github.com/victorbiga/argocd-authentication.git
   syncPolicy:
     automated:
