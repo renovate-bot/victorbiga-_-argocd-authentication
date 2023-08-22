@@ -10,9 +10,9 @@ spec:
   http:
     - match:
         - uri:
-            prefix: /grafana
-      rewrite:
-        uri: "/login"
+            prefix: /grafana/?(.*)
+#      rewrite:
+#        uri: "/login"
       route:
         - destination:
             host: grafana-grafana-operator-grafana-service
