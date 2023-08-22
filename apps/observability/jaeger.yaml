@@ -10,7 +10,7 @@ metadata:
 spec:
   project: observability
   sources:
-    - repoURL: https://charts.bitnami.com/bitnami
+    - repoURL: https://jaegertracing.github.io/helm-charts
       targetRevision: 0.71.14
       chart: jaeger
       helm:
