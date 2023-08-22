@@ -15,13 +15,13 @@ spec:
     chart: gateway
     helm:
       valueFiles:
-      - $values/auth/values/gateway/values.yaml
+      - $values/apps/authentication/values/gateway/values.yaml
   - repoURL: https://github.com/victorbiga/argocd-authentication.git
     targetRevision: master
     ref: values
   - repoURL: https://github.com/victorbiga/argocd-authentication.git
     targetRevision: master
-    path: auth/values/gateway/templates
+    path: apps/authentication/values/gateway/templates
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system

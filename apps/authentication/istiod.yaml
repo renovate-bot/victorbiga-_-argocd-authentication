@@ -2,29 +2,29 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
-  name: cert-manager
+    argocd.argoproj.io/sync-wave: "2"
+  name: istiod
   namespace: argocd
   labels:
-    name: cert-manager
+    name: istiod
 spec:
   project: authentication
   sources:
-  - repoURL: https://charts.jetstack.io
-    targetRevision: 1.12.3
-    chart: cert-manager
-    helm:
-      valueFiles:
-      - $values/auth/values/cert-manager/values.yaml
-  - repoURL: https://github.com/victorbiga/argocd-authentication.git
-    targetRevision: master
-    ref: values
-  - repoURL: https://github.com/victorbiga/argocd-authentication.git
-    targetRevision: master
-    path: auth/values/cert-manager/templates
+    - repoURL: https://istio-release.storage.googleapis.com/charts
+      targetRevision: 1.18.2
+      chart: istiod
+      helm:
+        valueFiles:
+          - $values/apps/authentication/values/istiod/values.yaml
+    - repoURL: https://github.com/victorbiga/argocd-authentication.git
+      targetRevision: master
+      ref: values
+#    - repoURL: https://github.com/victorbiga/argocd-authentication.git
+#      targetRevision: master
+#      path: apps/authentication/values/istiod/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: cert-manager
+    namespace: istio-system
   info:
     - name: 'Example:'
       value: 'https://example.com'
