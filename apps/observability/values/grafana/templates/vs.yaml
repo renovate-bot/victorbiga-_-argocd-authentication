@@ -4,18 +4,11 @@ metadata:
   name: grafana
 spec:
   hosts:
-    - victor.internal
+    - grafana.victor.internal
   gateways:
     - istio-system/gateway
   http:
-    - match:
-        - uri:
-            prefix: /grafana
-#      rewrite:
-#        uri: /
+    - name: "grafana"
       route:
         - destination:
             host: grafana-grafana-operator-grafana-service
-            port:
-              number: 3000
-
