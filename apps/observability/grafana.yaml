@@ -19,9 +19,9 @@ spec:
     - repoURL: https://github.com/victorbiga/argocd-authentication.git
       targetRevision: master
       ref: values
-#    - repoURL: https://github.com/victorbiga/argocd-authentication.git
-#      targetRevision: master
-#      path: apps/authentication/values/grafana/templates
+    - repoURL: https://github.com/victorbiga/argocd-authentication.git
+      targetRevision: master
+      path: apps/observability/values/grafana/templates
   destination:
     server: https://kubernetes.default.svc
     namespace: grafana
