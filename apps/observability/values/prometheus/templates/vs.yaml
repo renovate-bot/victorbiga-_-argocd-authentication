@@ -1,3 +1,4 @@
+---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
@@ -11,4 +12,20 @@ spec:
     - name: "prometheus"
       route:
         - destination:
-            host: prometheus
+            host: prometheus-server
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: alertmanager
+spec:
+  hosts:
+    - alertmanager.victor.internal
+  gateways:
+    - istio-system/gateway
+  http:
+    - name: "alertmanager"
+      route:
+        - destination:
+            host: prometheus-alertmanager
+---
