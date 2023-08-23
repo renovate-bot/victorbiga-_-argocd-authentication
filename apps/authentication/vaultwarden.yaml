@@ -10,8 +10,8 @@ metadata:
 spec:
   project: authentication
   sources:
-    - repoURL: https://charts.truecharts.org/
-      targetRevision: 21.0.3
+    - repoURL: https://charts.gabe565.com
+      targetRevision: 0.10.1
       chart: vaultwarden
       helm:
         valueFiles:
