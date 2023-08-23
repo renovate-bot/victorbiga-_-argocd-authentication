@@ -1,0 +1,5 @@
+persistence:
+  data:
+    enabled: true
+    retain: true
+    size: 1Gi
