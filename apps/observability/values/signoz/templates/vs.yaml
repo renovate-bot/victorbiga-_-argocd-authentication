@@ -12,4 +12,4 @@ spec:
     - name: "signoz"
       route:
         - destination:
-            host: signoz
+            host: signoz-frontend
