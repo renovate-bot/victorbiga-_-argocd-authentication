@@ -1,0 +1,15 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: signoz
+spec:
+  hosts:
+    - signoz.victor.internal
+  gateways:
+    - istio-system/gateway
+  http:
+    - name: "signoz"
+      route:
+        - destination:
+            host: signoz
