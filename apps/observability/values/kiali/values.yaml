@@ -22,3 +22,4 @@ external_services:
     url: 'http://my-jaeger-host/jaeger'
   istio:
     istio_api_enabled: true
+    root_namespace: istio-system
