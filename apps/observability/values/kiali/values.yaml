@@ -1,24 +1,23 @@
-kiali-server:
-  auth:
-    strategy: "anonymous"
-  istio_namespace: "istio-system"
-  external_services:
-    prometheus:
-      url: http://prometheus-prometheus-pushgateway.prometheus.svc.cluster.local:9091
-    grafana:
-      enabled: true
-      #in_cluster_url: http://grafana-service.grafana.svc.cluster.local
-      url: http://grafana.victor.internal
-    tracing:
-      enabled: false
-      # Enabled by default. Kiali will anyway fallback to disabled if
-      # Jaeger is unreachable.
-      # Jaeger service name is "tracing" and is in the "telemetry" namespace.
-      # Make sure the URL you provide corresponds to the non-GRPC enabled endpoint
-      # if you set "use_grpc" to false.
-      in_cluster_url: 'http://tracing.telemetry:16685/jaeger'
-      use_grpc: true
-      # Public facing URL of Jaeger
-      url: 'http://my-jaeger-host/jaeger'
-    istio:
-      istio_api_enabled: false
+auth:
+  strategy: "anonymous"
+istio_namespace: "istio-system"
+external_services:
+  prometheus:
+    url: http://prometheus-prometheus-pushgateway.prometheus.svc.cluster.local:9091
+  grafana:
+    enabled: true
+    #in_cluster_url: http://grafana-service.grafana.svc.cluster.local
+    url: http://grafana.victor.internal
+  tracing:
+    enabled: false
+    # Enabled by default. Kiali will anyway fallback to disabled if
+    # Jaeger is unreachable.
+    # Jaeger service name is "tracing" and is in the "telemetry" namespace.
+    # Make sure the URL you provide corresponds to the non-GRPC enabled endpoint
+    # if you set "use_grpc" to false.
+    in_cluster_url: 'http://tracing.telemetry:16685/jaeger'
+    use_grpc: true
+    # Public facing URL of Jaeger
+    url: 'http://my-jaeger-host/jaeger'
+  istio:
+    istio_api_enabled: false
