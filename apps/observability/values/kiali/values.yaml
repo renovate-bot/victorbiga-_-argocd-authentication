@@ -22,6 +22,7 @@ external_services:
     url: 'http://my-jaeger-host/jaeger'
   istio:
     istio_api_enabled: true
+    # https://www.lisenet.com/2023/kiali-does-not-see-istio-ingressgateway-installed-in-separate-kubernetes-namespace/
     root_namespace: istio-system
     component_status:
       enabled: true
