@@ -13,4 +13,6 @@ spec:
       route:
         - destination:
             host: kiali
+            port:
+              number: 20001
 ---
