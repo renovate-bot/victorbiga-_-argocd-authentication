@@ -3,7 +3,7 @@ auth:
 istio_namespace: "istio-system"
 external_services:
   prometheus:
-    url: http://prometheus-kube-state-metrics.prometheus.svc.cluster.local:8080
+    url: http://prometheus-server.prometheus.svc.cluster.local:9090
   grafana:
     enabled: false
     #in_cluster_url: http://grafana-service.grafana.svc.cluster.local
