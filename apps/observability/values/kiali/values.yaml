@@ -1,3 +1,4 @@
+# https://kiali.io/docs/configuration/
 auth:
   strategy: "anonymous"
 istio_namespace: "istio-system"
