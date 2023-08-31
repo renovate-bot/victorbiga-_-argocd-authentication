@@ -5,7 +5,7 @@ external_services:
   prometheus:
     url: http://prometheus-kube-state-metrics.prometheus.svc.cluster.local:8080
   grafana:
-    enabled: true
+    enabled: false
     #in_cluster_url: http://grafana-service.grafana.svc.cluster.local
     url: http://grafana.victor.internal
   tracing:
