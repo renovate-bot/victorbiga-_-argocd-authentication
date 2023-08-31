@@ -20,4 +20,4 @@ external_services:
     # Public facing URL of Jaeger
     url: 'http://my-jaeger-host/jaeger'
   istio:
-    istio_api_enabled: false
+    istio_api_enabled: true
