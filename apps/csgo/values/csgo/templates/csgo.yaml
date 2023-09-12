@@ -45,9 +45,27 @@ apiVersion: v1
 metadata:
   name: my-csgo-steamcmd
   labels:
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/instance: my-csgo
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "6Gi"
+---
+# Source: csgo/templates/common.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-csgo-serverfiles
+  labels:
     helm.sh/chart: csgo-2.0.9
     app.kubernetes.io/name: csgo
     app.kubernetes.io/instance: my-csgo
+    helm-revision: "1"
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: Helm
 spec:
   accessModes:
     - "ReadWriteOnce"
@@ -84,9 +102,13 @@ metadata:
   name: my-csgo
   labels:
     app.kubernetes.io/instance: my-csgo
+    app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: csgo
+    app.kubernetes.io/version: latest
+    helm-revision: "1"
+    helm.sh/chart: csgo-2.0.9
   annotations:
-    rollme: jHplq
+    rollme: IolvT
 spec:
   revisionHistoryLimit: 3
   replicas: 1
@@ -181,6 +203,8 @@ spec:
               protocol: TCP
           volumeMounts:
 
+            - mountPath: /serverdata/serverfiles
+              name: serverfiles
             - mountPath: /shared
               name: shared
             - mountPath: /dev/shm
@@ -221,6 +245,9 @@ spec:
               cpu: 10m
               memory: 50Mi
       volumes:
+        - name: serverfiles
+          persistentVolumeClaim:
+            claimName: my-csgo-serverfiles
         - name: shared
           emptyDir:
             {}

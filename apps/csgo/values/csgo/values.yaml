@@ -1,7 +1,7 @@
 # values for csgo
 persistence:
   serverfiles:
-    enabled: false
+    enabled: true
     mountPath: /serverdata/serverfiles
   steamcmd:
     enabled: true
