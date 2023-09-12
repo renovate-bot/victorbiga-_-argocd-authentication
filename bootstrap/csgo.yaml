@@ -11,7 +11,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: argocd
+    namespace: csgo
     server: https://kubernetes.default.svc
   ignoreDifferences:
   - group: argoproj.io
