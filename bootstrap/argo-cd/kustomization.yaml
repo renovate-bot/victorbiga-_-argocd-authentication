@@ -10,6 +10,7 @@ configMapGenerator:
       usernameSecret:
         key: git_username
         name: autopilot-secret
+  - application.instanceLabelKey=argocd.argoproj.io/instance
   name: argocd-cm
 - name: argocd-cm
   behavior: merge
