@@ -29,10 +29,10 @@ spec:
     - name: 'CSGO Server:'
       value: 'https://example.com'
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: false
+#    automated:
+#      prune: true
+#      selfHeal: true
+#      allowEmpty: false
     syncOptions:
       - Validate=true
       - CreateNamespace=true
