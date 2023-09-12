@@ -10,15 +10,15 @@ metadata:
 spec:
   project: csgo
   sources:
-  - repoURL: https://charts.truecharts.org/
-    targetRevision: 2.0.9
-    chart: csgo
-    helm:
-      valueFiles:
-      - $values/apps/csgo/values/csgo/values.yaml
-  - repoURL: https://github.com/victorbiga/argocd-authentication.git
-    targetRevision: master
-    ref: values
+#  - repoURL: https://charts.truecharts.org/
+#    targetRevision: 2.0.9
+#    chart: csgo
+#    helm:
+#      valueFiles:
+#      - $values/apps/csgo/values/csgo/values.yaml
+#  - repoURL: https://github.com/victorbiga/argocd-authentication.git
+#    targetRevision: master
+#    ref: values
   - repoURL: https://github.com/victorbiga/argocd-authentication.git
     targetRevision: master
     path: apps/csgo/values/csgo/templates

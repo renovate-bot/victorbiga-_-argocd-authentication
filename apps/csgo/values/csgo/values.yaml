@@ -1,1 +1,11 @@
 # values for csgo
+persistence:
+  serverfiles:
+    enabled: false
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: false
+    mountPath: /serverdata/steamcmd
+
+portal:
+  enabled: false

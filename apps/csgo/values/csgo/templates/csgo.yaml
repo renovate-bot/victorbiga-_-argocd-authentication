@@ -1,1 +1,355 @@
-# templates for csgo
+---
+# Source: csgo/templates/common.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-csgo
+  labels:
+    app.kubernetes.io/instance: my-csgo
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/version: latest
+    helm-revision: "1"
+    helm.sh/chart: csgo-2.0.9
+stringData:
+  PASSWRD: ""
+  USERNAME: ""
+---
+# Source: csgo/templates/common.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-csgo-serverfiles
+  labels:
+    helm.sh/chart: csgo-2.0.9
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/instance: my-csgo
+    helm-revision: "1"
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "6Gi"
+---
+# Source: csgo/templates/common.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-csgo-steamcmd
+  labels:
+    helm.sh/chart: csgo-2.0.9
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/instance: my-csgo
+    helm-revision: "1"
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "6Gi"
+---
+# Source: csgo/templates/common.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-csgo
+  labels:
+    app.kubernetes.io/instance: my-csgo
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/version: latest
+    helm-revision: "1"
+    helm.sh/chart: csgo-2.0.9
+  annotations:
+spec:
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+
+  ports:
+    - port: 27015
+      targetPort: 27015
+      protocol: UDP
+      name: main
+  selector:
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/instance: my-csgo
+---
+# Source: csgo/templates/common.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-csgo-tcprcon
+  labels:
+    app.kubernetes.io/instance: my-csgo
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/version: latest
+    helm-revision: "1"
+    helm.sh/chart: csgo-2.0.9
+  annotations:
+spec:
+  type: ClusterIP
+
+  ports:
+    - port: 27015
+      targetPort: 27015
+      protocol: TCP
+      name: tcprcon
+  selector:
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/instance: my-csgo
+---
+# Source: csgo/templates/common.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-csgo
+  labels:
+    app.kubernetes.io/instance: my-csgo
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/version: latest
+    helm-revision: "1"
+    helm.sh/chart: csgo-2.0.9
+  annotations:
+    rollme: iFRMp
+spec:
+  revisionHistoryLimit: 3
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: csgo
+      app.kubernetes.io/instance: my-csgo
+  template:
+    metadata:
+      annotations:
+
+      labels:
+        app.kubernetes.io/name: csgo
+        app.kubernetes.io/instance: my-csgo
+    spec:
+
+
+      serviceAccountName: default
+      securityContext:
+
+        fsGroup: 568
+        fsGroupChangePolicy: OnRootMismatch
+        runAsGroup: 0
+        runAsUser: 0
+        supplementalGroups:
+          - 568
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        options:
+
+          - name: ndots
+            value: "1"
+      enableServiceLinks: false
+      terminationGracePeriodSeconds: 10
+      initContainers:
+
+      containers:
+        - name: my-csgo
+          image: tccr.io/truecharts/csgo:latest@sha256:6a408e0ee8048dfdd8b689c5e127c240af8466626aacc0d8fca2864bcf390ce5
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              add: []
+              drop: []
+            privileged: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+
+          env:
+            - name: PUID
+              value: "568"
+            - name: USER_ID
+              value: "568"
+            - name: UID
+              value: "568"
+            - name: UMASK
+              value: "2"
+            - name: UMASK_SET
+              value: "2"
+            - name: PGID
+              value: "568"
+            - name: GROUP_ID
+              value: "568"
+            - name: GID
+              value: "568"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "void"
+            - name: TZ
+              value: "UTC"
+            - name: "GAME_ID"
+              value: "740"
+            - name: "GAME_NAME"
+              value: "csgo"
+            - name: "GAME_PARAMS"
+              value: "+game_type 0 -usercon +game_mode 0 +mapgroup mg_active +map de_dust2"
+            - name: "GAME_PORT"
+              value: "27015"
+            - name: "VALIDATE"
+              value: "false"
+          envFrom:
+            - secretRef:
+                name: my-csgo
+          ports:
+            - name: main
+              containerPort: 27015
+              protocol: UDP
+            - name: tcprcon
+              containerPort: 27015
+              protocol: TCP
+          volumeMounts:
+
+            - mountPath: /serverdata/serverfiles
+              name: serverfiles
+            - mountPath: /shared
+              name: shared
+            - mountPath: /dev/shm
+              name: shm
+            - mountPath: /serverdata/steamcmd
+              name: steamcmd
+            - mountPath: /tmp
+              name: temp
+            - mountPath: /var/logs
+              name: varlogs
+          livenessProbe:
+            tcpSocket:
+              port: 27015
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 27015
+            initialDelaySeconds: 10
+            failureThreshold: 5
+            timeoutSeconds: 5
+            periodSeconds: 10
+          startupProbe:
+            tcpSocket:
+              port: 27015
+            initialDelaySeconds: 10
+            failureThreshold: 60
+            timeoutSeconds: 2
+            periodSeconds: 5
+
+          resources:
+            limits:
+              cpu: 3000m
+              memory: 6Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
+      volumes:
+        - name: serverfiles
+          persistentVolumeClaim:
+            claimName: my-csgo-serverfiles
+        - name: shared
+          emptyDir:
+            {}
+        - name: shm
+          emptyDir:
+            medium: Memory
+        - name: steamcmd
+          persistentVolumeClaim:
+            claimName: my-csgo-steamcmd
+        - name: temp
+          emptyDir:
+            {}
+        - name: varlogs
+          emptyDir:
+            {}
+---
+# Source: csgo/templates/common.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-csgo-manifests
+  namespace: csgo
+  annotations:
+    "helm.sh/hook": pre-install, pre-upgrade
+    "helm.sh/hook-weight": "-7"
+    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+---
+# Source: csgo/templates/common.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: my-csgo-manifests
+  annotations:
+    "helm.sh/hook": pre-install, pre-upgrade
+    "helm.sh/hook-weight": "-7"
+    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+rules:
+  - apiGroups:  ["*"]
+    resources:  ["*"]
+    verbs:  ["*"]
+---
+# Source: csgo/templates/common.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: my-csgo-manifests
+  annotations:
+    "helm.sh/hook": pre-install, pre-upgrade
+    "helm.sh/hook-weight": "-7"
+    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: my-csgo-manifests
+subjects:
+  - kind: ServiceAccount
+    name: my-csgo-manifests
+    namespace: victor
+---
+# Source: csgo/templates/common.yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  namespace: victor
+  name: my-csgo-manifests
+  annotations:
+    "helm.sh/hook": pre-install, pre-upgrade
+    "helm.sh/hook-weight": "-6"
+    "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
+spec:
+  template:
+    spec:
+      serviceAccountName: my-csgo-manifests
+      containers:
+        - name: my-csgo-manifests
+          image: tccr.io/truecharts/kubectl:v1.26.0@sha256:6d6e0e50f28b961ed1c1c6a9c140553238641591fbdc9ac7c1a348636f78c552
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              /bin/sh <<'EOF'
+              echo "installing manifests..."
+              kubectl apply --server-side --force-conflicts -k https://github.com/truecharts/manifests/manifests  || echo "Manifest application failed..."
+              EOF
+          volumeMounts:
+            - name: my-csgo-manifests-temp
+              mountPath: /tmp
+      restartPolicy: Never
+      volumes:
+        - name: my-csgo-manifests-temp
+          emptyDir: {}
