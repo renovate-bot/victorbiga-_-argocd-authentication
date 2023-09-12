@@ -15,7 +15,7 @@ spec:
     chart: csgo
     helm:
       valueFiles:
-      - $values/apps/authentication/values/csgo/values.yaml
+      - $values/apps/csgo/values/csgo/values.yaml
   - repoURL: https://github.com/victorbiga/argocd-authentication.git
     targetRevision: master
     ref: values
