@@ -60,12 +60,8 @@ apiVersion: v1
 metadata:
   name: my-csgo-serverfiles
   labels:
-    helm.sh/chart: csgo-2.0.9
     app.kubernetes.io/name: csgo
     app.kubernetes.io/instance: my-csgo
-    helm-revision: "1"
-    app.kubernetes.io/version: "latest"
-    app.kubernetes.io/managed-by: Helm
 spec:
   accessModes:
     - "ReadWriteOnce"
