@@ -20,7 +20,7 @@ spec:
     kind: Application
   project: csgo
   source:
-    path: apps/csgo/values/csgo/templates
+    path: apps/csgo
     repoURL: https://github.com/victorbiga/argocd-authentication.git
   syncPolicy:
 #    automated:
