@@ -69,7 +69,6 @@ metadata:
   labels:
     app.kubernetes.io/instance: my-csgo
     app.kubernetes.io/name: csgo
-    app.kubernetes.io/version: latest
   annotations:
     rollme: 5jrro
 spec:
