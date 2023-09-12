@@ -4,7 +4,7 @@ persistence:
     enabled: false
     mountPath: /serverdata/serverfiles
   steamcmd:
-    enabled: false
+    enabled: true
     mountPath: /serverdata/steamcmd
 
 portal:

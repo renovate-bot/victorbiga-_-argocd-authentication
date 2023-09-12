@@ -40,6 +40,25 @@ spec:
     app.kubernetes.io/instance: my-csgo
 ---
 # Source: csgo/templates/common.yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-csgo-steamcmd
+  labels:
+    helm.sh/chart: csgo-2.0.9
+    app.kubernetes.io/name: csgo
+    app.kubernetes.io/instance: my-csgo
+    helm-revision: "1"
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  accessModes:
+    - "ReadWriteOnce"
+  resources:
+    requests:
+      storage: "999Gi"
+---
+# Source: csgo/templates/common.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -70,7 +89,7 @@ metadata:
     app.kubernetes.io/instance: my-csgo
     app.kubernetes.io/name: csgo
   annotations:
-    rollme: 5jrro
+    rollme: jHplq
 spec:
   revisionHistoryLimit: 3
   replicas: 1
@@ -83,12 +102,16 @@ spec:
   template:
     metadata:
       annotations:
+
       labels:
         app.kubernetes.io/name: csgo
         app.kubernetes.io/instance: my-csgo
     spec:
+
+
       serviceAccountName: default
       securityContext:
+
         fsGroup: 568
         fsGroupChangePolicy: OnRootMismatch
         runAsGroup: 0
@@ -98,11 +121,13 @@ spec:
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
+
           - name: ndots
             value: "1"
       enableServiceLinks: false
       terminationGracePeriodSeconds: 10
       initContainers:
+
       containers:
         - name: my-csgo
           image: tccr.io/truecharts/csgo:latest@sha256:6a408e0ee8048dfdd8b689c5e127c240af8466626aacc0d8fca2864bcf390ce5
@@ -115,6 +140,7 @@ spec:
             privileged: false
             readOnlyRootFilesystem: false
             runAsNonRoot: false
+
           env:
             - name: PUID
               value: "568"
@@ -157,10 +183,13 @@ spec:
               containerPort: 27015
               protocol: TCP
           volumeMounts:
+
             - mountPath: /shared
               name: shared
             - mountPath: /dev/shm
               name: shm
+            - mountPath: /serverdata/steamcmd
+              name: steamcmd
             - mountPath: /tmp
               name: temp
             - mountPath: /var/logs
@@ -186,6 +215,7 @@ spec:
             failureThreshold: 60
             timeoutSeconds: 2
             periodSeconds: 5
+
           resources:
             limits:
               cpu: 4000m
@@ -200,6 +230,9 @@ spec:
         - name: shm
           emptyDir:
             medium: Memory
+        - name: steamcmd
+          persistentVolumeClaim:
+            claimName: my-csgo-steamcmd
         - name: temp
           emptyDir:
             {}
