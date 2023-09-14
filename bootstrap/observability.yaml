@@ -30,6 +30,7 @@
 #    syncOptions:
 #    - allowEmpty=true
 #status:
+
 #  health: {}
 #  summary: {}
 #  sync:
